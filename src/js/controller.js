@@ -112,6 +112,11 @@ async function showMovie(movieID) {
 }
 
 function init() {
+  window.onload = window.onresize = function () {
+    const body = document.querySelector('body');
+    const height = window.innerHeight;
+    body.style.height = height + 'px';
+  };
   // initial functions
   initializeBookmarks();
   showMovieList('trending', 'default');
