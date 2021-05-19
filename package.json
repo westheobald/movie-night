@@ -1,0 +1,14 @@
+{
+  "name": "movie-browser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass -rw src/sass/main.scss src/css/style.css"
+  },
+  "author": "Wes Theobald",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  }
+}

@@ -1,0 +1,16 @@
+.bookmarks {
+  // width: 100%;
+  // max-width: 400px;
+  height: 100%;
+  width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 1s;
+  background-color: #eceaee;
+}
+
+.icon__remove {
+  fill: #333;
+  width: 2rem;
+  height: 2rem;
+}

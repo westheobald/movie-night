@@ -1,0 +1,55 @@
+.nav {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 1rem;
+  background-color: $color-purple-primary;
+  height: 8rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.icon__nav {
+  width: 3.4rem;
+  height: 3rem;
+
+  fill: white;
+  transition: all 0.5s;
+  filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 3px 6px);
+
+  &:active {
+    fill: rgb(214, 214, 214);
+    transform: scale(0.9);
+    filter: drop-shadow(rgba(0, 0, 0, 0.8) 0px 1px 3px);
+  }
+}
+
+.search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  &__field {
+    height: 3rem;
+    width: 80%;
+    border: none;
+
+    transition: width 0.3s;
+    padding-left: 1rem;
+
+    &:focus {
+      width: 85%;
+      outline: none;
+    }
+
+    &::placeholder {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+  }
+}

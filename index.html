@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>What to watch...</title>
+    <meta name="description" content="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <link rel="apple-touch-icon" href="icon.png" /> -->
+    <!-- Place favicon.ico in the root directory  -->
+    <link
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/style.css" />
+
+    <!-- <meta name="theme-color" content="#fafafa" /> -->
+  </head>
+
+  <body>
+    <div class="app">
+      <nav class="nav">
+        <svg class="icon__nav icon__menu">
+          <use xlink:href="src/img/sprites.svg#icon-menu"></use>
+        </svg>
+        <form class="search">
+          <input
+            type="text"
+            class="search__field"
+            placeholder="Find a movie..."
+          />
+          <input type="submit" value="go" class="hidden" />
+        </form>
+        <svg class="icon__nav icon__bookmark">
+          <use xlink:href="src/img/sprites.svg#icon-bookmark"></use>
+        </svg>
+      </nav>
+
+      <div class="app__main">
+        <div class="sidebar" data-on="0"></div>
+        <div class="main">
+          <div class="main__content"></div>
+        </div>
+        <div class="bookmarks" data-on="0">No movies added yet...</div>
+      </div>
+    </div>
+
+    <script src="src/js/controller.js" type="module"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID.
+    <script>
+      window.ga = function () {
+        ga.q.push(arguments);
+      };
+      ga.q = [];
+      ga.l = +new Date();
+      ga("create", "UA-XXXXX-Y", "auto");
+      ga("set", "anonymizeIp", true);
+      ga("set", "transport", "beacon");
+      ga("send", "pageview");
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script> -->
+  </body>
+</html>
