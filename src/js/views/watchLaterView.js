@@ -26,10 +26,6 @@ class WatchLaterView extends View {
   }
 
   _generateMarkupMovie(movie) {
-    // ADD DEFAULT IMAGE TO FALSE CONDITION
-    const moviePosterURL = movie.poster_path
-      ? `src="https://image.tmdb.org/t/p/w154${movie.poster_path}"`
-      : ``;
     const movieTitleShort =
       movie.title.length > 50 ? movie.title.slice(0, 50) + '...' : movie.title;
 
@@ -38,10 +34,11 @@ class WatchLaterView extends View {
       <svg class="icon__remove">
         <use xlink:href="src/img/sprites.svg#icon-cross"></use>
       </svg>
-      <img
-        class="sidebar__poster"
-        ${moviePosterURL}
-      />
+      ${
+        movie.poster_path
+          ? `<img class="sidebar__poster" src="https://image.tmdb.org/t/p/w154${movie.poster_path}" />`
+          : `<svg class="icon__missing"><use xlink:href="src/img/sprites.svg#icon-question"></use></svg>`
+      }
       <div class="sidebar__details">
         <h3>${movieTitleShort}</h3>
         <p>${movie.release_date.slice(0, 4)}</p>

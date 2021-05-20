@@ -251,13 +251,14 @@ body {
   height: 5rem;
   border-radius: 100%;
   object-fit: cover;
-  object-position: center;
-  margin: 1rem 1rem; }
+  object-position: center; }
 
 .crew__member {
   display: flex;
   align-items: center;
-  cursor: pointer; }
+  cursor: pointer;
+  column-gap: 2rem;
+  row-gap: 2rem; }
 
 .bookmarks {
   height: 100%;
@@ -304,8 +305,7 @@ body {
   height: 5rem;
   border-radius: 100%;
   object-fit: cover;
-  object-position: center;
-  margin: 1rem 1rem; }
+  object-position: center; }
 
 .icon__home {
   fill: #333;

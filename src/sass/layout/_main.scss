@@ -192,11 +192,12 @@
     border-radius: 100%;
     object-fit: cover;
     object-position: center;
-    margin: 1rem 1rem;
   }
   &__member {
     display: flex;
     align-items: center;
     cursor: pointer;
+    column-gap: 2rem;
+    row-gap: 2rem;
   }
 }
