@@ -57,18 +57,24 @@ body {
   justify-content: center; }
   .search__field {
     height: 3rem;
-    width: 80%;
+    width: 70%;
     border: none;
     transition: width 0.3s;
     padding-left: 1rem; }
     .search__field:focus {
-      width: 85%;
+      width: 80%;
       outline: none; }
     .search__field::placeholder {
       font-family: inherit;
       font-size: inherit;
       font-weight: inherit;
       color: inherit; }
+  .search__submit {
+    background-color: #c4c4c4;
+    text-transform: uppercase;
+    position: relative;
+    border: none;
+    width: 4rem; }
 
 .sidebar {
   height: 100%;

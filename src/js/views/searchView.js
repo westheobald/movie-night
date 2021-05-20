@@ -28,6 +28,10 @@ class SearchView extends View {
   searchSubmit(handlerShowSearch, handlerToggleSidebar) {
     this._parentElement.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (document.querySelector('.search__field').value === '') {
+        return;
+      }
+      document.querySelector('.search__field').blur();
       handlerShowSearch();
 
       // true forces sidebar to stay open (when searching with a sidebar search already open)

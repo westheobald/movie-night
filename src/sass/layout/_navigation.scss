@@ -18,14 +18,14 @@
 
   &__field {
     height: 3rem;
-    width: 80%;
+    width: 70%;
     border: none;
 
     transition: width 0.3s;
     padding-left: 1rem;
 
     &:focus {
-      width: 85%;
+      width: 80%;
       outline: none;
     }
 
@@ -35,5 +35,13 @@
       font-weight: inherit;
       color: inherit;
     }
+  }
+
+  &__submit {
+    background-color: rgb(196, 196, 196);
+    text-transform: uppercase;
+    position: relative;
+    border: none;
+    width: 4rem;
   }
 }
