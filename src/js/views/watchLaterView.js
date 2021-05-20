@@ -44,9 +44,7 @@ class WatchLaterView extends View {
       />
       <div class="sidebar__details">
         <h3>${movieTitleShort}</h3>
-        <div class="stars__outer">
-          <div class="stars__inner" data-rating="${movie.vote_average}"></div>
-        </div>
+        <p>${movie.release_date.slice(0, 4)}</p>
       </div>
     </div>`;
   }

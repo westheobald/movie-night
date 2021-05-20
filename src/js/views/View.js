@@ -7,8 +7,8 @@ export default class View {
     const markup = this._generateMarkup();
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
-
-    if (data.rating || data[0].vote_average) {
+    console.log(data);
+    if (data.rating) {
       this._addStarsRating();
     }
   }

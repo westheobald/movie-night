@@ -74,6 +74,7 @@ class SidebarView extends View {
   }
 
   _generateMarkupMovie(movie) {
+    console.log(movie);
     // ADD DEFAULT IMAGE TO FALSE CONDITION
     const moviePoster = movie.poster_path
       ? `src="https://image.tmdb.org/t/p/w154${movie.poster_path}"`
@@ -89,15 +90,17 @@ class SidebarView extends View {
         />
         <div class="sidebar__details">
           <h3 class="sidebar__title">${movieTitleShort}</h3>
-          ${
-            movie.vote_average
-              ? `<div class="sidebar__rating"><div class="stars__outer"><div class="stars__inner" data-rating="${movie.vote_average}"></div></div></div>`
-              : ''
-          }
+          <p>${movie.release_date.slice(0, 4)}</p>
         </div>
       </div>
     `;
   }
 }
+
+// ${
+//   movie.vote_average
+//     ? `<div class="sidebar__rating"><div class="stars__outer"><div class="stars__inner" data-rating="${movie.vote_average}"></div></div></div>`
+//     : ''
+// }
 
 export default new SidebarView();
