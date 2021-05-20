@@ -14,31 +14,29 @@ export const state = {
 
 export const getMovieTiles = async function (type, id) {
   try {
+    // skips fetch if search has already been done
     if (Object.prototype.hasOwnProperty.call(state, id)) {
-      state.movieList = state[id];
-      return;
+      return (state.movieList = state[id]);
     }
-    if (type === 'list') {
-      const url = `https://api.themoviedb.org/3/list/${id}?api_key=${API_KEY}&language=en-US`;
 
-      const data = await getJSON(url);
-      state.movieList = data.items;
-      return (state[id] = state.movieList);
+    let url;
+    if (type === 'list') {
+      url = `https://api.themoviedb.org/3/list/${id}?api_key=${API_KEY}&language=en-US`;
     }
     if (type === 'trending') {
-      const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-
-      const data = await getJSON(url);
-      state.movieList = data.results;
-      return (state[id] = state.movieList);
+      url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
     }
     if (type === 'genre') {
-      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${id}`;
-
-      const data = await getJSON(url);
-      state.movieList = data.results;
-      return (state[id] = state.movieList);
+      url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${id}`;
     }
+
+    const data = await getJSON(url);
+    if (data.results) {
+      state.movieList = data.results;
+    } else {
+      state.movieList = data.items;
+    }
+    return (state[id] = state.movieList);
   } catch (error) {
     throw error;
   }
@@ -143,6 +141,13 @@ export const getMovie = async function (movieID) {
         state.movie.providers.rent = localProviders.rent;
       }
     }
+
+    state.watchLater.forEach(function (movie) {
+      console.log(movie.id, data.id);
+      if (movie.id === data.id) {
+        state.movie.bookmarked = true;
+      }
+    });
   } catch (error) {
     throw error;
   }

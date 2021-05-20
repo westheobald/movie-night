@@ -26,16 +26,12 @@ class WatchLaterView extends View {
   }
 
   _generateMarkupMovie(movie) {
-    console.log(movie);
     // ADD DEFAULT IMAGE TO FALSE CONDITION
     const moviePosterURL = movie.poster_path
       ? `src="https://image.tmdb.org/t/p/w154${movie.poster_path}"`
       : ``;
-    const movieTitleLength = 25;
     const movieTitleShort =
-      movie.title.length > movieTitleLength
-        ? movie.title.slice(0, movieTitleLength) + '...'
-        : movie.title;
+      movie.title.length > 50 ? movie.title.slice(0, 50) + '...' : movie.title;
 
     return `
     <div class="sidebar__el" data-id="${movie.id}">

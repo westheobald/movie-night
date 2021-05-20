@@ -13,7 +13,6 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  height: -webkit-fill-available;
   overflow: hidden;
   background-color: #8bc6ec;
   background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
@@ -23,10 +22,6 @@ body {
 
 .hidden {
   display: none; }
-
-@media (min-width: 700px) {
-  body {
-    height: 100vh; } }
 
 .icon__loading {
   width: 4rem;
@@ -123,7 +118,7 @@ body {
 .sidebar__el,
 .sidebar__el--blank {
   color: #333;
-  height: 6rem;
+  height: 9rem;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -143,10 +138,15 @@ body {
   margin-left: 10px;
   border-radius: 10000rem;
   object-fit: cover;
-  object-position: center; }
+  object-position: center;
+  flex-shrink: 0; }
 
-.search__details {
-  margin-left: 20px; }
+.search__details,
+.bookmarks__details {
+  margin-left: 2rem; }
+
+.icon__remove {
+  flex-shrink: 0; }
 
 .movie__heading {
   display: flex;
@@ -154,19 +154,26 @@ body {
   align-items: center; }
 
 .btn__bookmark {
-  flex-shrink: 0;
   height: 4rem;
   width: 2.5rem;
-  margin-left: 1rem;
   stroke-width: 0.1rem;
   stroke: black;
   fill: transparent; }
+  .btn__bookmark--active {
+    fill: black; }
+
+.bookmark__container {
+  text-align: center;
+  flex-shrink: 0;
+  height: 5rem;
+  width: 5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; }
 
 .movie__details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 35rem;
+  max-width: 32rem;
   margin: 1rem 0 2rem 0;
   font-size: 1.4rem; }
 
@@ -187,12 +194,12 @@ body {
 
 .movieList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   row-gap: 1rem; }
 
 .movieList img,
 .similar__movie__img {
-  max-width: 140px;
+  max-width: 145px;
   justify-self: center;
   transition: all 0.5s; }
 
@@ -275,11 +282,13 @@ body {
 .movie__directors {
   margin-top: 6rem; }
 
-.movie__actors ul,
-.movie__directors ul {
+.movie__actors ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
   list-style: none; }
+
+.movie__directors {
+  width: 20rem; }
 
 .crew__member,
 .movie__directors {

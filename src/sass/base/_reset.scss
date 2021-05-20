@@ -15,7 +15,6 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
 
-  height: -webkit-fill-available;
   overflow: hidden;
 
   background-color: #8bc6ec;
@@ -29,12 +28,6 @@ body {
 
 .hidden {
   display: none;
-}
-
-@media (min-width: 700px) {
-  body {
-    height: 100vh;
-  }
 }
 
 .icon__loading {

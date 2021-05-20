@@ -4,6 +4,12 @@ import sidebarView from './views/sidebarView.js';
 import searchView from './views/searchView.js';
 import watchLaterView from './views/watchLaterView.js';
 
+async function initializeBookmarks() {
+  if (!localStorage.bookmarks) return;
+  model.state.watchLater = JSON.parse(localStorage.getItem('bookmarks'));
+  watchLaterView.render(model.state.watchLater);
+}
+
 async function showActorSearch(actorID, query) {
   try {
     sidebarView.renderSpinner();
@@ -24,21 +30,6 @@ async function showDirectorSearch(directorID, query) {
   }
 }
 
-// async function showGenreSearch(genreID) {
-//   try {
-//     sidebarView.renderSpinner();
-//     await model.getGenre(genreID);
-//     sidebarView.render(model.state.search.results);
-//   } catch (error) {
-//     sidebarView.renderError();
-//   }
-// }
-
-async function initializeBookmarks() {
-  if (!localStorage.bookmarks) return;
-  model.state.watchLater = JSON.parse(localStorage.getItem('bookmarks'));
-  watchLaterView.render(model.state.watchLater);
-}
 async function updateBookmarks(movieID, maintainSidebar) {
   await model.addWatchLater(movieID);
   watchLaterView.render(model.state.watchLater);
@@ -112,11 +103,13 @@ async function showMovie(movieID) {
 }
 
 function init() {
+  // 100vh fix for mobile browsers
   window.onload = window.onresize = function () {
     const body = document.querySelector('body');
     const height = window.innerHeight;
     body.style.height = height + 'px';
   };
+
   // initial functions
   initializeBookmarks();
   showMovieList('trending', 'default');

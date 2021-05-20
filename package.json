@@ -1,7 +1,7 @@
 {
-  "name": "movie-browser",
+  "name": "movie-night",
   "version": "1.0.0",
-  "description": "",
+  "description": "Find a good movie to watch!",
   "main": "index.js",
   "scripts": {
     "compile:sass": "node-sass -rw src/sass/main.scss src/css/style.css"

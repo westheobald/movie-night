@@ -5,20 +5,31 @@
 }
 
 .btn__bookmark {
-  flex-shrink: 0;
   height: 4rem;
   width: 2.5rem;
-  margin-left: 1rem;
   stroke-width: 0.1rem;
   stroke: black;
   fill: transparent;
+
+  &--active {
+    fill: black;
+  }
+}
+
+.bookmark__container {
+  text-align: center;
+  flex-shrink: 0;
+  height: 5rem;
+  width: 5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .movie__details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 35rem;
+  max-width: 32rem;
   margin: 1rem 0 2rem 0;
   font-size: 1.4rem;
 }
@@ -43,13 +54,13 @@
 
 .movieList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   row-gap: 1rem;
 }
 
 .movieList img,
 .similar__movie__img {
-  max-width: 140px;
+  max-width: 145px;
   justify-self: center;
   transition: all 0.5s;
 }
@@ -166,11 +177,14 @@
 .movie__directors {
   margin-top: 6rem;
 }
-.movie__actors ul,
-.movie__directors ul {
+.movie__actors ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
   list-style: none;
+}
+
+.movie__directors {
+  width: 20rem;
 }
 .crew__member,
 .movie__directors {

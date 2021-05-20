@@ -52,7 +52,6 @@ class SidebarView extends View {
       </div>
       `;
     } else {
-      // (Array.isArray(this._data.results))
       return `
       <div class="sidebar__el" data-id="home" data-type="trending">
         Home
@@ -71,9 +70,9 @@ class SidebarView extends View {
     // ADD DEFAULT IMAGE TO FALSE CONDITION
     const moviePoster = movie.poster_path
       ? `src="https://image.tmdb.org/t/p/w154${movie.poster_path}"`
-      : ``;
+      : `src=""`;
     const movieTitleShort =
-      movie.title.length > 19 ? movie.title.slice(0, 19) + '...' : movie.title;
+      movie.title.length > 50 ? movie.title.slice(0, 50) + '...' : movie.title;
 
     return `
       <div class="sidebar__el" data-id="${movie.id}">

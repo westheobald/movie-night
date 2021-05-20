@@ -11,6 +11,9 @@ class MainView extends View {
       }
 
       if (e.target.closest('.btn__bookmark')) {
+        document
+          .querySelector('.btn__bookmark')
+          .classList.toggle('btn__bookmark--active');
         handlerUpdateBookmarks(
           e.target.closest('.btn__bookmark').dataset.movie,
         );
@@ -49,10 +52,12 @@ class MainView extends View {
   }
 
   _generateMarkup() {
+    console.log(this._data);
     if (Array.isArray(this._data)) {
-      return `<div class="movieList">${this._data
-        .map(this._generateMarkupMovies)
-        .join('')}</div>`;
+      return `
+        <div class="movieList">
+          ${this._data.map(this._generateMarkupMovies).join('')}
+        </div>`;
     } else {
       return `
       ${
@@ -71,9 +76,13 @@ class MainView extends View {
           ? `
           <div class="movie__heading">
             <h1 class="movie__title">${this._data.title}</h1>
-            <svg class="btn__bookmark" data-movie="${this._data.id}">
-              <use xlink:href="src/img/sprites.svg#icon-bookmark"></use>
-            </svg>
+            <div class="bookmark__container">
+              <svg class="btn__bookmark${
+                this._data.bookmarked ? ' btn__bookmark--active' : ''
+              }" data-movie="${this._data.id}">
+                <use xlink:href="src/img/sprites.svg#icon-bookmark"></use>
+              </svg>
+            </div>
           </div>`
           : ''
       }

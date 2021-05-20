@@ -22,7 +22,7 @@
 .sidebar__el,
 .sidebar__el--blank {
   color: #333;
-  height: 6rem;
+  height: 9rem;
 
   &:not(:last-child) {
     border-bottom: 1px solid rgba(163, 163, 163, 0.384);
@@ -49,8 +49,14 @@
   border-radius: 10000rem;
   object-fit: cover;
   object-position: center;
+  flex-shrink: 0;
 }
 
-.search__details {
-  margin-left: 20px;
+.search__details,
+.bookmarks__details {
+  margin-left: 2rem;
+}
+
+.icon__remove {
+  flex-shrink: 0;
 }
