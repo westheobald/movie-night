@@ -32,32 +32,39 @@ class SidebarView extends View {
   _generateMarkup() {
     if (this._data === 'default') {
       return `
-      <div class="sidebar__el sidebar__el--active" data-id="default" data-type="trending">
+      <div class="sidebar__el sidebar__el--list sidebar__el--active" data-id="default" data-type="trending">
         Trending
       </div>
-      <div class="sidebar__el" data-id="7094043" data-type="list">
+      <div class="sidebar__el sidebar__el--list" data-id="634" data-type="list">
+        All Time Most Popular
+      </div>
+      <div class="sidebar__el sidebar__el--list" data-id="7094043" data-type="list">
         Wes' Favorites
       </div>
-      <div class="sidebar__el" data-id="28" data-type="genre">
+      <div class="sidebar__el sidebar__el--list" data-id="28" data-type="list">
+        Academy Awards - Best Picture Winners
+      </div>
+      <div class="sidebar__el sidebar__el--list" data-id="28" data-type="genre">
         Action
       </div>
-      <div class="sidebar__el" data-id="35" data-type="genre">
+      <div class="sidebar__el sidebar__el--list" data-id="35" data-type="genre">
         Comedy
       </div>
-      <div class="sidebar__el" data-id="18" data-type="genre">
+      <div class="sidebar__el sidebar__el--list" data-id="18" data-type="genre">
         Drama
       </div>
-      <div class="sidebar__el" data-id="27" data-type="genre">
+      <div class="sidebar__el sidebar__el--list" data-id="27" data-type="genre">
         Horror
       </div>
       `;
     } else {
       return `
       <div class="sidebar__el" data-id="home" data-type="trending">
+        <svg class="icon__home"><use xlink:href="src/img/sprites.svg#icon-home"></use></svg>
         Home
       </div>
       <div class="sidebar__el--blank">
-        Searching for "${this._data.query}"
+        Searching for "${this._data.query}":
       </div>
       ${this._data.results
         .filter((el) => el.title)
@@ -77,14 +84,14 @@ class SidebarView extends View {
     return `
       <div class="sidebar__el" data-id="${movie.id}">
         <img
-          class="search__poster"
+          class="sidebar__poster"
           ${moviePoster}
         />
-        <div class="search__details">
-          <h3 class="search__title">${movieTitleShort}</h3>
+        <div class="sidebar__details">
+          <h3 class="sidebar__title">${movieTitleShort}</h3>
           ${
             movie.vote_average
-              ? `<div class="search__rating"><div class="stars__outer"><div class="stars__inner" data-rating="${movie.vote_average}"></div></div></div>`
+              ? `<div class="sidebar__rating"><div class="stars__outer"><div class="stars__inner" data-rating="${movie.vote_average}"></div></div></div>`
               : ''
           }
         </div>

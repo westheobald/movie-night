@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 
-@import 'utils/variables';
+@import 'utils/variables', 'utils/mixins';
 
-@import 'base/reset';
+@import 'base/reset', 'base/typography';
 
-@import 'layout/navigation', 'layout/app', 'layout/sidebar', 'layout/main',
+@import 'layout/app', 'layout/navigation', 'layout/sidebar', 'layout/main',
   'layout/bookmarks';
 
-@import 'components/movie-list';
+@import 'components/icons';

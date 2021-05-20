@@ -47,6 +47,10 @@ async function showSearch(page = 1) {
   }
 }
 function renderSearch(id, type, query) {
+  if (id === 'back') {
+    sidebarView.toggleSidebar('sidebar', false);
+    return showMovieList();
+  }
   if (id && !type) {
     sidebarView.toggleSidebar(
       query === 'bookmarks' ? 'bookmarks' : 'sidebar',

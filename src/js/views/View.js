@@ -8,8 +8,9 @@ export default class View {
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
 
-    // WHAT IS THIS
-    if (typeof this._addStarsRating === 'function') this._addStarsRating();
+    if (data.rating || data[0].vote_average) {
+      this._addStarsRating();
+    }
   }
 
   _addStarsRating() {
@@ -49,8 +50,19 @@ export default class View {
     const element = document.querySelector(`.${el}`);
     const iconDefault = el === 'sidebar' ? 'menu' : 'bookmark';
     const iconNew = el === 'sidebar' ? 'icon__menu' : 'icon__bookmark';
+    if (openSidebar === true) {
+      return open();
+    } else if (openSidebar === false) {
+      return close();
+    }
 
-    if (openSidebar === true || element.dataset.on === '0') {
+    if (element.dataset.on === '0') {
+      return open();
+    } else if (element.dataset.on === '1') {
+      return close();
+    }
+
+    function open() {
       element.style.width = '100%';
       element.setAttribute('data-on', '1');
       document.querySelector(`.${iconNew}`).innerHTML = `
@@ -58,7 +70,8 @@ export default class View {
       `;
       document.querySelector('.main').style.opacity = '0';
       document.querySelector('.main').style.transitionDelay = '0s';
-    } else if (element.dataset.on === '1' || openSidebar === false) {
+    }
+    function close() {
       element.style.width = '0';
       element.setAttribute('data-on', '0');
       document.querySelector(`.${iconNew}`).innerHTML = `

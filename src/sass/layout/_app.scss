@@ -2,30 +2,16 @@
   max-width: 700px;
   max-height: 800px;
   height: 100%;
-  overflow: auto;
   display: flex;
   flex-direction: column;
   width: 100%;
   &__main {
-    height: calc(100vh - 5rem);
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: rgb(241, 241, 241);
+    background-color: $color-main-background;
     display: flex;
     flex-direction: row;
     position: relative;
   }
-}
-
-.main {
-  // position: absolute;
-  // top: 0;
-  flex: 1;
-  overflow-y: auto;
-  transition: opacity 0.4s;
-}
-
-.main__content {
-  padding: 1rem;
-  padding-bottom: 6rem;
 }

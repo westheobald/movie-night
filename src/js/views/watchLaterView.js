@@ -39,10 +39,10 @@ class WatchLaterView extends View {
         <use xlink:href="src/img/sprites.svg#icon-cross"></use>
       </svg>
       <img
-        class="bookmarks__poster"
+        class="sidebar__poster"
         ${moviePosterURL}
       />
-      <div class="bookmarks__details">
+      <div class="sidebar__details">
         <h3>${movieTitleShort}</h3>
         <div class="stars__outer">
           <div class="stars__inner" data-rating="${movie.vote_average}"></div>
