@@ -6,10 +6,6 @@ class MainView extends View {
 
   addHandlerRenderMovies(handlerRenderSearch, handlerUpdateBookmarks) {
     this._parentElement.addEventListener('click', function (e) {
-      if (e.target.closest('.btn__back')) {
-        handlerRenderSearch('back');
-      }
-
       if (e.target.closest('.btn__bookmark')) {
         document
           .querySelector('.btn__bookmark')
@@ -19,7 +15,6 @@ class MainView extends View {
         );
       }
 
-      // actor click, renders actor search in sidebar
       const crewElement = e.target.closest('li');
       if (crewElement) {
         if (crewElement.dataset.actor) {
@@ -68,17 +63,6 @@ class MainView extends View {
       console.log(this._data);
 
       return `
-      ${
-        document.querySelector('.sidebar__el--list')
-          ? `
-          <div class="btn__back">
-            <svg class="icon__back icon-arrow-left">
-              <use xlink:href="src/img/sprites.svg#icon-arrow-left"></use>
-            </svg>
-          </div>`
-          : ``
-      }
-
       ${
         this._data.title
           ? `
@@ -205,9 +189,7 @@ class MainView extends View {
           ? `<img class="crew__image" src="https://image.tmdb.org/t/p/w154${crewMember.profile_path}"></img>`
           : '<svg class="icon__missing"><use xlink:href="src/img/sprites.svg#icon-question"></use></svg>'
       }</div>${crewMember.name} as ${crewMember.character}</li>`;
-    }
-    // ADD ALTERNATE
-    else
+    } else
       return `<li class="crew__member" data-director="${
         crewMember.id
       }" data-name="${crewMember.name}"><div class="crew__image--container">${

@@ -84,9 +84,9 @@ function renderSearch(id, type, query) {
 
 async function showMovieList(type, id) {
   try {
-    console.log;
     mainView.renderSpinner();
     window.location.hash = `${type}-${id}`;
+    document.title = `Movie Night | What to watch...`;
     if (id === 'default') {
       sidebarView.render('default');
     }
@@ -103,6 +103,7 @@ async function showMovie(movieID) {
     mainView.renderSpinner();
     window.location.hash = `${movieID}`;
     await model.getMovie(movieID);
+    document.title = `Movie Night | ${model.state.movie.title}`;
     mainView.render(model.state.movie);
   } catch (error) {
     mainView.renderError(error);
