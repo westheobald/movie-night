@@ -84,7 +84,9 @@ function renderSearch(id, type, query) {
 
 async function showMovieList(type, id) {
   try {
+    console.log;
     mainView.renderSpinner();
+    window.location.hash = `${type}-${id}`;
     if (id === 'default') {
       sidebarView.render('default');
     }
@@ -99,10 +101,30 @@ async function showMovieList(type, id) {
 async function showMovie(movieID) {
   try {
     mainView.renderSpinner();
+    window.location.hash = `${movieID}`;
     await model.getMovie(movieID);
     mainView.render(model.state.movie);
   } catch (error) {
     mainView.renderError(error);
+  }
+}
+
+function renderHash() {
+  if (location.hash) {
+    const hash = location.hash.slice(1);
+
+    if (hash) {
+      if (hash.includes('-')) {
+        const type = hash.split('-')[0];
+        const id = hash.split('-')[1];
+        console.log(type, id);
+        showMovieList(type, id);
+      } else {
+        showMovie(hash);
+      }
+    }
+  } else {
+    showMovieList('trending', 'default');
   }
 }
 
@@ -116,7 +138,7 @@ function init() {
 
   // initial functions
   initializeBookmarks();
-  showMovieList('trending', 'default');
+  renderHash();
 
   // handlers functions
   searchView.navButtons(searchView.toggleSidebar);
@@ -124,8 +146,7 @@ function init() {
   sidebarView.addHandlerRenderMovies(renderSearch, showMovieList);
   mainView.addHandlerRenderMovies(renderSearch, updateBookmarks);
   mainView.addHandlerRenderSimilarMovie(showMovie);
-  //CONTINUE HERE, REVIEW SIDEBAR VIEW
-  // add short title to model and remove from sidebar and bookmarks
+  mainView.addHandlerRenderURLChange(renderHash);
   watchLaterView.addHandlerRenderMovies(renderSearch, updateBookmarks);
 }
 init();

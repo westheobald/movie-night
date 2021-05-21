@@ -51,6 +51,13 @@ class MainView extends View {
     });
   }
 
+  addHandlerRenderURLChange(handlerRenderHash) {
+    window.addEventListener('hashchange', function (e) {
+      console.log(e);
+      handlerRenderHash();
+    });
+  }
+
   _generateMarkup() {
     if (Array.isArray(this._data)) {
       return `

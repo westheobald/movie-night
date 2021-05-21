@@ -49,6 +49,7 @@ export default class View {
     const element = document.querySelector(`.${el}`);
     const iconDefault = el === 'sidebar' ? 'menu' : 'bookmark';
     const iconNew = el === 'sidebar' ? 'icon__menu' : 'icon__bookmark';
+
     if (openSidebar === true) {
       return open();
     } else if (openSidebar === false) {
