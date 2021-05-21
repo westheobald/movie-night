@@ -118,7 +118,6 @@ function renderHash() {
       if (hash.includes('-')) {
         const type = hash.split('-')[0];
         const id = hash.split('-')[1];
-        console.log(type, id);
         showMovieList(type, id);
       } else {
         showMovie(hash);

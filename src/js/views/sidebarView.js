@@ -74,7 +74,6 @@ class SidebarView extends View {
   }
 
   _generateMarkupMovie(movie) {
-    console.log(movie);
     const movieTitleShort =
       movie.title.length > 50 ? movie.title.slice(0, 50) + '...' : movie.title;
 

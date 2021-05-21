@@ -48,7 +48,6 @@ class MainView extends View {
 
   addHandlerRenderURLChange(handlerRenderHash) {
     window.addEventListener('hashchange', function (e) {
-      console.log(e);
       handlerRenderHash();
     });
   }
@@ -60,8 +59,6 @@ class MainView extends View {
           ${this._data.map(this._generateMarkupMovies).join('')}
         </div>`;
     } else {
-      console.log(this._data);
-
       return `
       ${
         this._data.title

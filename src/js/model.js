@@ -143,7 +143,6 @@ export const getMovie = async function (movieID) {
     }
 
     state.watchLater.forEach(function (movie) {
-      console.log(movie.id, data.id);
       if (movie.id === data.id) {
         state.movie.bookmarked = true;
       }
