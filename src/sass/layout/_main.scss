@@ -97,6 +97,7 @@
 }
 
 .similar__movie {
+  cursor: pointer;
   width: 150px;
   flex-shrink: 0;
   height: 100%;
@@ -106,6 +107,7 @@
 }
 
 .btn__bookmark {
+  cursor: pointer;
   flex-shrink: 0;
   height: 3rem;
   width: 3rem;
@@ -198,6 +200,5 @@
     align-items: center;
     cursor: pointer;
     column-gap: 2rem;
-    row-gap: 2rem;
   }
 }

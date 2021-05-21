@@ -83,6 +83,8 @@ body {
   overflow-x: hidden;
   transition: all 1s;
   background-color: #eceaee; }
+  .sidebar__el {
+    cursor: pointer; }
   .sidebar__el, .sidebar__el--blank {
     height: 9rem;
     display: flex;
@@ -179,6 +181,7 @@ body {
       scroll-snap-align: start; }
 
 .similar__movie {
+  cursor: pointer;
   width: 150px;
   flex-shrink: 0;
   height: 100%;
@@ -186,6 +189,7 @@ body {
   scroll-behavior: smooth; }
 
 .btn__bookmark {
+  cursor: pointer;
   flex-shrink: 0;
   height: 3rem;
   width: 3rem;
@@ -257,8 +261,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  column-gap: 2rem;
-  row-gap: 2rem; }
+  column-gap: 2rem; }
 
 .bookmarks {
   height: 100%;
@@ -279,6 +282,7 @@ body {
   margin: 20rem auto; }
 
 .icon__nav {
+  cursor: pointer;
   width: 3.4rem;
   height: 3rem;
   fill: white;

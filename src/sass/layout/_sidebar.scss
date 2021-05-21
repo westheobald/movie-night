@@ -6,6 +6,10 @@
   transition: all 1s;
   background-color: $color-sidebar-background;
 
+  &__el {
+    cursor: pointer;
+  }
+
   &__el,
   &__el--blank {
     height: 9rem;
